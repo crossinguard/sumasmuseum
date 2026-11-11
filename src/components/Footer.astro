@@ -31,8 +31,10 @@ const today = new Date();
 			</div>
 		)}
 		<p>
-			&copy; {today.getFullYear()}
-			<span data-tina-field={seo ? tinaField(seo, "siteOwner") : undefined}>{seo?.siteOwner}</span>. All rights reserved.
+			<span data-tina-field={seo ? tinaField(seo, "siteOwner") : undefined}>{seo?.siteOwner}</span>
+		</p>
+		<p>
+			&copy; {today.getFullYear()}. All rights reserved.
 		</p>
 		<!-- <a
 			href="https://tina.io"

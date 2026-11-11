@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
@@ -53,7 +53,72 @@ function getSiteUrl() {
 
 // https://astro.build/config
 export default defineConfig({
-	site: getSiteUrl(),
+  site: getSiteUrl(),
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: "Atkinson",
+      cssVariable: "--font-atkinson",
+      options: {
+        variants: [
+          {
+            src: [
+              "./src/assets/fonts/AtkinsonHyperlegibleNextVF-Variable.woff2",
+            ],
+            weight: "200 800",
+            style: "normal",
+          },
+          {
+            src: [
+              "./src/assets/fonts/AtkinsonHyperlegibleNextVF-Variable.woff2",
+            ],
+            weight: "200 800",
+            style: "italic",
+            // variationSettings: "'ital' 1",
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Atkinson Mono",
+      cssVariable: "--font-atkinson-mono",
+      options: {
+        variants: [
+          {
+            src: [
+              "./src/assets/fonts/AtkinsonHyperlegibleMonoVF-Variable.woff2",
+            ],
+            weight: "200 800",
+            style: "normal",
+          },
+          {
+            src: [
+              "./src/assets/fonts/AtkinsonHyperlegibleMonoVF-Variable.woff2",
+            ],
+            weight: "200 800",
+            style: "italic",
+            // variationSettings: "'ital' 1",
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "CaptainEdward",
+      cssVariable: "--font-captain-edward",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/CaptainEdward-BoldRough.woff2"],
+            weight: "900",
+            style: "normal",
+          },
+        ],
+      },
+    },
+  ],
+
 	output: 'static',
 	adapter: await getAdapter(),
 	redirects: { '/home': '/' },
