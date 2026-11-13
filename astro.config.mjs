@@ -7,8 +7,6 @@ import tina from '@tinacms/astro/integration';
 import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 import tailwindcss from '@tailwindcss/vite';
 
-import netlify from '@astrojs/netlify';
-
 // Host-neutral: every content page prerenders to static HTML, and the one
 // on-demand route (/tina-island, the visual-editing endpoint) is served by
 // whichever host built the site. Each platform sets its own build env var
@@ -122,7 +120,7 @@ export default defineConfig({
   ],
 
     output: 'static',
-    adapter: netlify(),
+    adapter: await getAdapter(),
     redirects: { '/home': '/' },
     integrations: [mdx(), sitemap(), icon(), tina()],
     build: {
