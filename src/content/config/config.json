@@ -29,5 +29,6 @@
       "link": "mailto:sumasmuseum@yahoo.com",
       "icon": "tabler:mail"
     }
-  ]
+  ],
+  "footerStarfield": true
 }
